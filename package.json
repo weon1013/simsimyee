@@ -31,7 +31,7 @@
     "react-query": "^3.39.3",
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.25.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "stream-browserify": "^3.0.0",
     "swiper": "^11.1.10",
     "timers-browserify": "^2.0.12",
