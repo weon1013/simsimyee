@@ -14,7 +14,7 @@ root.render(
 );
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))ddsssss김태영 바보 아니고 정재호가 바보다 사실은 신성원이 바보다 이병민이 바보다 ㅋㅋㅋㅋ
+// to log results (for example: reportWebVitals(console.log))ddsssss김태영 바보 아니고 정재호가 바보다 사실은 신성원이 바보다 이병민이 바보다 ㅋㅋㅋㅋ sex
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
