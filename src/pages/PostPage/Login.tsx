@@ -34,7 +34,7 @@ export default function Login() {
             Coggy
           </h1>
           <p className="text-center text-gray-500 text-sm mt-2 mb-8">
-            웰시코기가 기다리고 있어요!
+            코기가 기다리고 있어요!
           </p>
 
           {/* 폼 */}
