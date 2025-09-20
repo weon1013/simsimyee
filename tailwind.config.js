@@ -1,5 +1,9 @@
+// tailwind.config.js
 module.exports = {
-  //...
+    content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  // ...
   theme: {
     extend: {
       animation: {
@@ -15,11 +19,4 @@ module.exports = {
     },
   },
   //...
-}
-// tailwind.config.js
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",  // 이 경로가 가장 일반적인 경로 설정입니다.
-  ],
-  // ...
 }
