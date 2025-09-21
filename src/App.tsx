@@ -5,6 +5,8 @@ import SettingsPage from "./pages/PostPage/SettingsPage";
 import LanguageSelectView from "./pages/PostPage/LanguageSelectView";
 import StudentAuthView from "./pages/PostPage/StudentAuthView";
 import SignUpPage from "./pages/PostPage/SignUpPage";
+import ProfilePage from "./pages/PostPage/ProfilePage";
+import PasswordChangePage from "./pages/PostPage/PasswordChangePage"; // PasswordChangePage 임포트
 
 function App() {
   const [view, setView] = useState("login");
@@ -28,6 +30,10 @@ function App() {
         return <StudentAuthView onGoBack={() => setView("login")} />;
       case "signUp":
         return <SignUpPage onGoBack={() => setView("login")} onNavigate={setView} />;
+      case "profile":
+        return <ProfilePage onGoBack={() => setView("settings")} />;
+      case "passwordChange": // 새로운 case 추가
+        return <PasswordChangePage onGoBack={() => setView("settings")} />;
       default:
         return null;
     }

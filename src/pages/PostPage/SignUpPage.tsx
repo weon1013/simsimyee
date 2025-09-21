@@ -23,7 +23,7 @@ function SignUpPage({ onGoBack, onNavigate }: SignUpPageProps) {
 
   return (
     <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 hover:scale-[1.01] border border-opacity-10 border-orange-200">
+      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 border border-opacity-10 border-orange-200">
         {/* 헤더 섹션 */}
         <div className="relative w-full flex justify-between items-center mb-6">
           <button

@@ -1,12 +1,10 @@
-// 환경설정 페이지
-
-// src/components/SettingsPage.tsx
+// src/pages/PostPage/SettingsPage.tsx
 import React, { useState } from "react";
 import coggyImage from "../../image/coggy.png";
 
 interface SettingsPageProps {
   onGoBack: () => void;
-  onNavigate: (view: "languageSelect" | string) => void;
+  onNavigate: (view: "languageSelect" | "profile" | "passwordChange" | string) => void;
 }
 
 function SettingsPage({ onGoBack, onNavigate }: SettingsPageProps) {
@@ -15,9 +13,12 @@ function SettingsPage({ onGoBack, onNavigate }: SettingsPageProps) {
   const handleItemClick = (settingName: string) => {
     if (settingName === "언어선택") {
       onNavigate("languageSelect");
+    } else if (settingName === "프로필") {
+      onNavigate("profile");
+    } else if (settingName === "비밀번호 변경") { // '비밀번호 변경' 항목 클릭 시 뷰 변경
+      onNavigate("passwordChange");
     } else {
       console.log(`${settingName} 클릭됨!`);
-      // TODO: 여기에 실제 설정 항목별 로직을 추가하세요.
     }
   };
 
@@ -26,12 +27,11 @@ function SettingsPage({ onGoBack, onNavigate }: SettingsPageProps) {
     console.log(
       `알림 설정이 ${isNotificationEnabled ? "켜짐" : "꺼짐"}으로 변경되었습니다.`
     );
-    // TODO: 알림 설정 상태를 서버에 저장하는 로직을 여기에 추가하세요.
   };
 
   return (
     <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 hover:scale-[1.01] border border-opacity-10 border-orange-200">
+      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 border border-opacity-10 border-orange-200">
         {/* 헤더 섹션 */}
         <div className="relative w-full flex justify-between items-center mb-6">
           <button

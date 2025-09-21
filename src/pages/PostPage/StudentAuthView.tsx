@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// 이미지 경로는 프로젝트 구조에 맞게 조정해야 합니다.
-// 예시로 placehold.co 이미지를 사용했습니다.
 import coggyImage from "../../image/coggy.png";
 
 interface StudentAuthViewProps {
@@ -9,6 +7,7 @@ interface StudentAuthViewProps {
 
 function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
   const [studentId, setStudentId] = useState("");
+  const [studentName, setStudentName] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedMajor, setSelectedMajor] = useState("");
   const [majorQuery, setMajorQuery] = useState("");
@@ -22,7 +21,7 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
   );
 
   const handleAuthSubmit = () => {
-    console.log("재학생 인증 시도:", { studentId, selectedYear, selectedMajor });
+    console.log("재학생 인증 시도:", { studentId, studentName, selectedYear, selectedMajor });
     // TODO: 여기에 실제 재학생 인증 로직을 추가하세요.
   };
 
@@ -34,7 +33,7 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
 
   return (
     <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 hover:scale-[1.01] border border-opacity-10 border-orange-200">
+      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 border border-opacity-10 border-orange-200">
         {/* 헤더 섹션 - 코기 이미지를 오른쪽으로 이동 */}
         <div className="relative w-full flex justify-between items-start mb-6">
           <button
@@ -63,7 +62,7 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
             </h1>
           </div>
           <img
-            src={coggyImage} // 이 부분을 수정하여 coggyImage 변수를 사용합니다.
+            src={coggyImage}
             alt="Coggy"
             className="w-12 h-12 rounded-full shadow-lg"
           />
@@ -73,24 +72,31 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
           {/* 재학생 인증 */}
           <div>
             <h2 className="text-lg font-bold text-gray-700 mb-2">
-              학생증/학번 인증
+              🧑‍🎓 이름 / 학번 인증
             </h2>
-            <div className="flex space-x-2">
+            <div className="flex flex-col space-y-4">
               <input
                 type="text"
-                placeholder="학번 입력"
+                placeholder="이름 입력" // 이름 입력란이 위로
+                value={studentName}
+                onChange={(e) => setStudentName(e.target.value)}
+                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 outline-none shadow-sm transition-all duration-300"
+              />
+              <input
+                type="text"
+                placeholder="학번 입력" // 학번 입력란이 아래로
                 value={studentId}
                 onChange={(e) => setStudentId(e.target.value)}
-                className="flex-1 px-5 py-3 rounded-xl border border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 outline-none shadow-sm transition-all duration-300"
+                className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 outline-none shadow-sm transition-all duration-300"
               />
-              <button
-                onClick={handleAuthSubmit}
-                className="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                인증
-              </button>
             </div>
           </div>
+          <button
+            onClick={handleAuthSubmit}
+            className="w-full px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            인증
+          </button>
 
           {/* 학년 선택 */}
           <div>

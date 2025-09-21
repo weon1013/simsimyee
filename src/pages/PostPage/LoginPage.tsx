@@ -1,11 +1,8 @@
-//로그인 페이지
-
-// src/pages/PostPage/LoginPage.tsx
 import React, { useState } from "react";
 import coggyImage from "../../image/coggy.png";
 
 interface LoginPageProps {
-  onNavigate: (view: "studentAuth" | "signUp" | "settings") => void; // "settings"
+  onNavigate: (view: "studentAuth" | "signUp" | "settings") => void;
 }
 
 function LoginPage({ onNavigate }: LoginPageProps) {
@@ -48,7 +45,7 @@ function LoginPage({ onNavigate }: LoginPageProps) {
       </button>
 
       {/* 상단 코기 이미지 및 로그인 카드 */}
-      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 pt-0 transform transition-transform duration-500 hover:scale-[1.01] border border-opacity-10 border-orange-200">
+      <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 pt-0 transform transition-transform duration-500 border border-opacity-10 border-orange-200">
         <div
           className="w-full h-40 bg-cover bg-center rounded-t-3xl -mt-0 mx-auto mb-6 flex items-center justify-center relative shadow-inner"
           style={{
