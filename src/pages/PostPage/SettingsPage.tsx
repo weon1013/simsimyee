@@ -1,3 +1,5 @@
+// 환경설정 페이지
+
 // src/components/SettingsPage.tsx
 import React, { useState } from "react";
 import coggyImage from "../../image/coggy.png";

@@ -1,3 +1,5 @@
+//언어선택
+
 // src/components/LanguageSelectView.tsx
 import React from "react";
 import coggyImage from "../../image/coggy.png";

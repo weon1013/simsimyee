@@ -1,6 +1,7 @@
-// src/components/StudentAuthView.tsx
 import React, { useState } from "react";
-import coggyImage from "../../image/coggy.png";
+// 이미지 경로는 프로젝트 구조에 맞게 조정해야 합니다.
+// 예시로 placehold.co 이미지를 사용했습니다.
+// import coggyImage from "../../image/coggy.png";
 
 interface StudentAuthViewProps {
   onGoBack: () => void;
@@ -9,12 +10,26 @@ interface StudentAuthViewProps {
 function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
   const [studentId, setStudentId] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
+  const [selectedMajor, setSelectedMajor] = useState("");
+  const [majorQuery, setMajorQuery] = useState("");
+  const [isMajorListOpen, setIsMajorListOpen] = useState(false);
 
   const years = ["1학년", "2학년", "3학년", "4학년"];
+  const majors = ["정보통신학과", "융합소프트웨어학과", "ICT 환경융합학과"];
+
+  const filteredMajors = majors.filter(major =>
+    major.toLowerCase().includes(majorQuery.toLowerCase())
+  );
 
   const handleAuthSubmit = () => {
-    console.log("재학생 인증 시도:", { studentId });
+    console.log("재학생 인증 시도:", { studentId, selectedYear, selectedMajor });
     // TODO: 여기에 실제 재학생 인증 로직을 추가하세요.
+  };
+
+  const handleMajorSelect = (major: string) => {
+    setSelectedMajor(major);
+    setMajorQuery(major);
+    setIsMajorListOpen(false);
   };
 
   return (
@@ -46,7 +61,7 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
             평택대학교 재학생 인증
           </h1>
           <img
-            src={coggyImage}
+            src="https://placehold.co/48x48/FDBA74/fff?text=Coggy"
             alt="Coggy"
             className="w-12 h-12 rounded-full shadow-lg"
           />
@@ -93,6 +108,41 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
                 </button>
               ))}
             </div>
+          </div>
+          
+          {/* 학과 선택 (검색 기능만) */}
+          <div className="relative">
+            <h2 className="text-lg font-bold text-gray-700 mb-2">학과 선택</h2>
+            <input
+              type="text"
+              placeholder="학과 검색..."
+              value={majorQuery}
+              onChange={(e) => {
+                setMajorQuery(e.target.value);
+                setIsMajorListOpen(true);
+              }}
+              onFocus={() => setIsMajorListOpen(true)}
+              className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 outline-none shadow-sm transition-all duration-300"
+            />
+            {majorQuery && isMajorListOpen && (
+              <div className="absolute z-20 w-full bg-white rounded-xl shadow-lg mt-2 max-h-48 overflow-y-auto">
+                {filteredMajors.length > 0 ? (
+                  filteredMajors.map((major) => (
+                    <button
+                      key={major}
+                      onClick={() => handleMajorSelect(major)}
+                      className="w-full text-left py-3 px-5 hover:bg-gray-100 transition-colors duration-200 rounded-xl"
+                    >
+                      {major}
+                    </button>
+                  ))
+                ) : (
+                  <p className="text-gray-500 text-sm py-3 px-5">
+                    검색 결과가 없습니다.
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

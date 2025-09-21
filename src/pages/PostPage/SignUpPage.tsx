@@ -1,3 +1,5 @@
+// 회원가입 페이지
+
 // src/pages/PostPage/SignUpPage.tsx
 import React, { useState } from "react";
 import coggyImage from "../../image/coggy.png";
