@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // 이미지 경로는 프로젝트 구조에 맞게 조정해야 합니다.
 // 예시로 placehold.co 이미지를 사용했습니다.
-// import coggyImage from "../../image/coggy.png";
+import coggyImage from "../../image/coggy.png";
 
 interface StudentAuthViewProps {
   onGoBack: () => void;
@@ -35,8 +35,8 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
   return (
     <div className="relative z-10 flex flex-col items-center w-full max-w-md">
       <div className="bg-white/90 backdrop-blur-md shadow-2xl rounded-3xl w-full p-8 transform transition-transform duration-500 hover:scale-[1.01] border border-opacity-10 border-orange-200">
-        {/* 헤더 섹션 */}
-        <div className="relative w-full flex justify-between items-center mb-6">
+        {/* 헤더 섹션 - 코기 이미지를 오른쪽으로 이동 */}
+        <div className="relative w-full flex justify-between items-start mb-6">
           <button
             onClick={onGoBack}
             className="p-2 rounded-full text-gray-400 hover:text-orange-600 hover:bg-white/50 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-orange-200"
@@ -57,11 +57,13 @@ function StudentAuthView({ onGoBack }: StudentAuthViewProps) {
               />
             </svg>
           </button>
-          <h1 className="text-2xl font-extrabold text-orange-600 drop-shadow-sm flex-1 text-center">
-            평택대학교 재학생 인증
-          </h1>
+          <div className="flex-1 flex flex-col items-center ml-4 mr-4 text-center">
+            <h1 className="text-2xl font-extrabold text-orange-600 drop-shadow-sm">
+              평택대학교 재학생 인증
+            </h1>
+          </div>
           <img
-            src="https://placehold.co/48x48/FDBA74/fff?text=Coggy"
+            src={coggyImage} // 이 부분을 수정하여 coggyImage 변수를 사용합니다.
             alt="Coggy"
             className="w-12 h-12 rounded-full shadow-lg"
           />
