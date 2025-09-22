@@ -9,7 +9,7 @@ interface ProfilePageProps {
 
 function ProfilePage({ onGoBack }: ProfilePageProps) {
   const profile = {
-    name: "이병민",
+    name: "김태영",
     email: "coggy123@naver.com",
     studentId: "2020143048",
     major: "정보통신학과",
